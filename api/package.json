@@ -1,0 +1,11 @@
+{
+  "name": "widget-api",
+  "version": "1.0.0",
+  "description": "A minimal API to serve visual reports concerning a customer's insurance policies",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "author": "Glenn Faison",
+  "license": "MIT"
+}
