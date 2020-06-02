@@ -45,7 +45,9 @@ async function clearDb() {
   const collections = Object.keys(mongoose.connection);
   collections.forEach(async (key) => {
     const collection = mongoose.connection.collections[key];
-    await collection.deleteMany();
+    if (collection && collection.deleteMany) {
+      await collection.deleteMany().catch(() => {});
+    }
   });
 }
 

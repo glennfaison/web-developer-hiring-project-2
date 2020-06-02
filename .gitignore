@@ -1,10 +1,10 @@
 # Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-lerna-debug.log*
+**/logs
+**/*.log
+**/npm-debug.log*
+**/yarn-debug.log*
+**/yarn-error.log*
+**/lerna-debug.log*
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
@@ -35,11 +35,11 @@ bower_components
 .lock-wscript
 
 # Compiled binary addons (https://nodejs.org/api/addons.html)
-build/Release
+**/build/Release
 
 # Dependency directories
-node_modules/
-jspm_packages/
+**/node_modules/
+**/jspm_packages/
 
 # TypeScript v1 declaration files
 typings/
@@ -48,10 +48,10 @@ typings/
 *.tsbuildinfo
 
 # Optional npm cache directory
-.npm
+**/.npm
 
 # Optional eslint cache
-.eslintcache
+**/.eslintcache
 
 # Microbundle cache
 .rpt2_cache/
@@ -69,8 +69,8 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
-.env.test
+**/.env
+**/.env.test
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -80,10 +80,10 @@ typings/
 
 # Nuxt.js build / generate output
 .nuxt
-dist
+**/dist
 
 # Gatsby files
-.cache/
+**/.cache/
 # Comment in the public line in if your project uses Gatsby and *not* Next.js
 # https://nextjs.org/blog/next-9-1#public-directory-support
 # public
@@ -102,3 +102,6 @@ dist
 
 # TernJS port file
 .tern-port
+
+# IDEs
+**/.vscode
