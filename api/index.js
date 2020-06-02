@@ -1,10 +1,19 @@
 const { config } = require('dotenv');
 const createServer = require('./server');
+const mongoose = require('./config/mongoose');
 
 config();
 
-createServer().listen(process.env.PORT, () => {
-  console.log(`Listening at http://localhost:${process.env.PORT} in ${process.env.NODE_ENV} mode`);
+async function init() {
+  // Start the database before the server
+  await mongoose.init();
+  return createServer();
+}
+
+init().then((server) => {
+  server.listen(process.env.PORT, () => {
+    console.log(`Listening at http://localhost:${process.env.PORT} in ${process.env.NODE_ENV} mode`);
+  });
 });
 
 if (process.env.NODE_ENV === 'production') {
