@@ -4,7 +4,9 @@ const bodyParser = require('body-parser');
 const compression = require('compression');
 const HttpStatus = require('http-status-codes');
 const errorHandler = require('strong-error-handler');
+const passport = require('passport');
 const components = require('./components');
+const localStrategy = require('./strategies/local');
 
 /**
  *  Create new application
@@ -19,6 +21,9 @@ function createApplication() {
   app.use(cors());
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(bodyParser.json());
+
+  // Authentication strategy
+  passport.use('local', localStrategy);
 
   // API routes here
   app.use('/', components);

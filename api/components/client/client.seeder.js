@@ -1,5 +1,6 @@
 const faker = require('faker');
 const ClientDAO = require('./client.dao');
+const { hashPassword } = require('../../strategies/local');
 
 async function generateOne() {
   /** @type {Client} */
@@ -10,6 +11,9 @@ async function generateOne() {
   client.fullName = `${firstName} ${lastName}`;
   client.email = faker.internet.email(firstName, lastName);
   client.password = faker.internet.password();
+  const { passwordHash, passwordSalt } = hashPassword(client.password);
+  client.passwordHash = passwordHash;
+  client.passwordSalt = passwordSalt;
   return client;
 }
 
@@ -32,7 +36,7 @@ async function generateAndSave(count = 1) {
   let savedClients = await Promise.allSettled(promises);
   savedClients = savedClients
     .filter((u) => u.status === 'fulfilled')
-    .map((u) => u.value);
+    .map((u, i) => ({ ...u.value.toJSON(), password: clients[i].password }));
   return savedClients;
 }
 
