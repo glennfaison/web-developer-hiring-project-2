@@ -3,8 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "build:tailwind": "tailwindcss build src/assets/tailwind.css -o src/styles.css",
+    "prebuild": "npm run build:tailwind",
     "build": "ng build",
+    "prestart": "npm run build:tailwind",
+    "start": "ng serve",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -20,6 +23,7 @@
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
     "rxjs": "~6.4.0",
+    "tailwindcss": "^1.4.6",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
   },
