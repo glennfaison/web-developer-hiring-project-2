@@ -7,9 +7,6 @@ import { NgForm } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  @ViewChild('form', { static: false }) form: NgForm;
-  errorMessage: string;
-
   constructor() {}
 
   ngOnInit() {}

@@ -8,7 +8,7 @@ export const AdminLayoutRoutes: Routes = [
     path: '',
     children: [
       { path: 'dashboard', component: DashboardComponent, pathMatch: 'full', },
-      { path: 'my-profile', component: ProfileComponent, pathMatch: 'full', },
+      { path: 'profile', component: ProfileComponent, pathMatch: 'full', },
       { path: '', pathMatch: 'prefix', redirectTo: 'dashboard', },
     ],
   },

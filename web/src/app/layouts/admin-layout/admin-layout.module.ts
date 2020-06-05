@@ -6,6 +6,7 @@ import { AdminLayoutRoutes } from './admin-layout.routing';
 import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from 'src/app/pages/dashboard/dashboard.component';
 import { ProfileComponent } from 'src/app/pages/profile/profile.component';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 
 
@@ -19,6 +20,7 @@ import { ProfileComponent } from 'src/app/pages/profile/profile.component';
     CommonModule,
     RouterModule.forChild(AdminLayoutRoutes),
     FormsModule,
+    ComponentsModule,
   ]
 })
 export class AdminLayoutModule { }
